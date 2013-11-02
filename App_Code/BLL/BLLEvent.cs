@@ -18,6 +18,8 @@ public class BLLEvent
     public void aanwezig(int p_int)
     {
         DalAddEvents.aanwezig(p_int);
+        
+        
     }
 
     public List<Event> SelectAllEvents() 

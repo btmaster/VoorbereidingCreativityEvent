@@ -2,11 +2,14 @@
   <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DatabaseConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Events" Member="Events">
     <Type Name="Event">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="naam" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="informatie" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
       <Column Name="datum" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="visitors" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="eigenaar" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Event_Aanwezig" Member="Aanwezigs" ThisKey="Id" OtherKey="EventId" Type="Aanwezig" />
+      <Association Name="User_Event" Member="User" ThisKey="eigenaar" OtherKey="Id" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Users" Member="Users">
@@ -18,6 +21,17 @@
       <Column Name="gebruikersnaam" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="wachtwoord" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="rol" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="User_Event" Member="Events" ThisKey="Id" OtherKey="eigenaar" Type="Event" />
+      <Association Name="User_Aanwezig" Member="Aanwezigs" ThisKey="Id" OtherKey="PersoonId" Type="Aanwezig" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Aanwezig" Member="Aanwezigs">
+    <Type Name="Aanwezig">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EventId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PersoonId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Event_Aanwezig" Member="Event" ThisKey="EventId" OtherKey="Id" Type="Event" IsForeignKey="true" />
+      <Association Name="User_Aanwezig" Member="User" ThisKey="PersoonId" OtherKey="Id" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

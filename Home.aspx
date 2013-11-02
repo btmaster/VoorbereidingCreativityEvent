@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link href="Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/CSS/home.css" rel="stylesheet" />
     <title></title>
 </head>
 <body>
@@ -26,9 +27,13 @@
 
             <ItemTemplate>
                 <tr>
-                    <td><%# Eval("naam") %></td>
-                    <td><%# Eval("visitors") %></td>
                     <td>
+                     <asp:LinkButton ID="btnInfoEvent" OnClick="btnInfoEvent_Click" CommandArgument='<%# Eval("id") %>' runat="server" >   <%# Eval("naam") %></asp:LinkButton>
+                    </td>
+                    <td>
+                        <%# Eval("visitors") %>
+                    </td>
+                    <td id="verwijder">
                         <asp:LinkButton ID="btnAanwezig" OnClick="btnAanwezig_Click" CommandArgument='<%# Eval("id") %>' runat="server" Text="aanwezig"></asp:LinkButton>
                     </td>
 
@@ -40,6 +45,11 @@
             </FooterTemplate>
         </asp:Repeater>
         <asp:ObjectDataSource ID="ObjdsEvents" runat="server" SelectMethod="SelectAllEvents" TypeName="BLLEvent"></asp:ObjectDataSource>
+        
+       
+        <p>
+            <asp:Button ID="btnMaakEvent" runat="server" OnClick="btnMaakEvent_Click" Text="Maak Event" />
+        </p>
         
        
     </form>

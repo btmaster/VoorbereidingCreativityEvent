@@ -15,7 +15,7 @@ public class BLLAanwezig
         DalAddAanwezig.insert(p_eve);
     }
 
-    public List<Aanwezig> SelectAllAanwezige(int id)
+    public List<int> SelectAllAanwezige(int id)
     {
         return DalAddAanwezig.SelectEvent(id);
     }

@@ -17,10 +17,10 @@ public class DALAanwezig
         dc.SubmitChanges();
     }
 
-    public List<Aanwezig> SelectEvent(int id)
+    public List<int> SelectEvent(int id)
     {
         var query = (from u in dc.Aanwezigs where u.EventId == id
-                     select u ).ToList();
+                     select u.PersoonId).ToList();
         return query;
 
     }

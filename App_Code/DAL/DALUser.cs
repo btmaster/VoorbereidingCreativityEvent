@@ -56,4 +56,8 @@ public class DALUser
         return gebruiker.ToList();
     }
 
+    public List<string> selectAanwezigen(int id){
+        var gebruikers = from u in dc.Users where u.Id == id select u.naam;
+        return gebruikers.ToList();
+    }
 }

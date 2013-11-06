@@ -50,6 +50,11 @@
         <p>
             <asp:Button ID="btnMaakEvent" runat="server" OnClick="btnMaakEvent_Click" Text="Maak Event" />
         </p>
+         <p>
+            <asp:Button ID="btnAlleenAdmin" runat="server" Onclick="btnInfoEvent_Click" Text="Alleen Admin" />
+        </p>
+       
+       
         
        
     </form>

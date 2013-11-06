@@ -16,9 +16,22 @@ public partial class InfoEvent : System.Web.UI.Page
 
         eventId = (int)(Session["eventid"]);
         lblEventid.Text = Convert.ToString(eventId);
-        DALAanwezig SelectEvent = new DALAanwezig();
-        IList<Aanwezig> Events = SelectEvent.SelectEvent(eventId);
-        rptAanwezig.DataSource = Events;
+        BLLAanwezig SelectAanwezig = new BLLAanwezig();
+        BLLUser SelectUser = new BLLUser();
+        IList<int> Events = SelectAanwezig.SelectAllAanwezige(eventId);
+        var Aanwezigen = new List<string>();
+        
+
+        foreach (int row in Events)
+        {
+            int id = row;
+            List<string> TussenAanwezig = SelectUser.selectAanwezigen(id);
+            var persoon = TussenAanwezig[0];
+            Aanwezigen.Add(persoon);
+        } 
+
+
+        rptAanwezig.DataSource = Aanwezigen;
         rptAanwezig.DataBind();
 
 

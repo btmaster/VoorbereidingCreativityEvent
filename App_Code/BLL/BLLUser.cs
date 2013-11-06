@@ -27,4 +27,9 @@ public class BLLUser
        
         return DalAddUsers.selectGebruiker(g);
     }
+
+    public List<string> selectAanwezigen(int id)
+    {
+        return DalAddUsers.selectAanwezigen(id);
+    }
 }

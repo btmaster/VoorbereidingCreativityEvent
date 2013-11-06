@@ -24,10 +24,7 @@
             <ItemTemplate>
                 <tr>
                     <td>
-                        <%# Eval("EventId") %>
-                    </td>
-                    <td>
-                        <%# Eval("PersoonId") %>
+                        <%# Container.DataItem %>
                     </td>
                     
                 </tr>

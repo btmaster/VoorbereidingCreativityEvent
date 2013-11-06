@@ -23,6 +23,13 @@
         <asp:Label ID="lblwerkt" runat="server" Text=""></asp:Label>
     
     </div>
+        <p>
+            <asp:Button ID="btnNietlog" runat="server" OnClick="btnNietlog_Click" Text="Log niet in" />
+        </p>
+        
+        <p>
+            <asp:Button ID="btnSignup" runat="server" OnClick="btnSignup_Click" Text="Sign up" />
+        </p>
     </form>
 </body>
 </html>

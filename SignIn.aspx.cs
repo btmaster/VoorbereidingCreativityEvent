@@ -34,4 +34,15 @@ public partial class SignIn : System.Web.UI.Page
             lblwerkt.Text = "werkt niet";
         }
     }
+    protected void btnSignup_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/CreateUser.aspx");
+    }
+    protected void btnNietlog_Click(object sender, EventArgs e)
+    {
+        var gebruikers ="";
+        Session.Add("gebruikersnaam", gebruikers);
+        Response.Redirect("~/Home.aspx");
+        
+    }
 }

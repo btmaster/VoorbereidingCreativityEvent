@@ -12,12 +12,24 @@ public partial class Home : System.Web.UI.Page
     string gebruiker = "";
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        /*facebook
+        var client = new Facebook.FacebookClient();
+
+        dynamic result = client.Get("oauth/access_token", new
+        {
+            client_id = "clientId",
+            client_secret = "clientSecret",
+            redirect_uri = "redirectUri",
+            code = "code"
+        });
        
+        Console.Write(result);
+        */
         gebruiker = (string)(Session["gebruikersnaam"]);
         if (gebruiker == "")
         {
             btnAlleenAdmin.Visible = false;
+            btnMaakEvent.Visible = false;
             lblTest.Text = "Welkom";
             
         }

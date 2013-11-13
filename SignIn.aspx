@@ -5,60 +5,50 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Sign In</title>
-    <!--
-    <script>
-        window.fbAsyncInit = function () {
+        <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+        <script src="scripts/all.js" type="text/javascript"></script>
+        <script>$("document").ready(function () {
+            // Initialize the SDK upon load
             FB.init({
-                appId: '249728251846520', // App ID
+                appId: '419477641511868', // App ID
+                channelUrl: 'http://localhost:62372/project/SignIn.aspx', // Path to your Channel File
+                scope: 'id,name,gender,user_birthday,email', // This to get the user details back from Facebook
                 status: true, // check login status
                 cookie: true, // enable cookies to allow the server to access the session
                 xfbml: true  // parse XFBML
             });
-
-            FB.Event.subscribe('auth.authResponseChange', function (response) {
-                if (response.status === 'connected') {
-                    // the user is logged in and has authenticated your
-                    // app, and response.authResponse supplies
-                    // the user's ID, a valid access token, a signed
-                    // request, and the time the access token 
-                    // and signed request each expire
-                    var uid = response.authResponse.userID;
-                    var accessToken = response.authResponse.accessToken;
-
-                    // Do a post to the server to finish the logon
-                    // This is a form post since we don't want to use AJAX
-                    var form = document.createElement("form");
-                    form.setAttribute("method", 'post');
-                    form.setAttribute("action", '');
-
-                    var field = document.createElement("input");
-                    field.setAttribute("type", "hidden");
-                    field.setAttribute("name", 'accessToken');
-                    field.setAttribute("value", accessToken);
-                    form.appendChild(field);
-
-                    document.body.appendChild(form);
-                    form.submit();
-
-                } else if (response.status === 'not_authorized') {
-                    // the user is logged in to Facebook, 
-                    // but has not authenticated your app
-                } else {
-                    // the user isn't logged in to Facebook.
-                }
+            // listen for and handle auth.statusChange events
+            FB.Event.subscribe('auth.statusChange', OnLogin);
             });
-        };
+            // This method will be called after the user login into facebook.
+            function OnLogin(response) {
+                if (response.authResponse) {
+                    FB.api('/me?fields=id,name,gender,email,birthday', LoadValues);
+                }
+            }
 
-        // Load the SDK Asynchronously
-        (function (d) {
-            var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-            if (d.getElementById(id)) { return; }
-            js = d.createElement('script'); js.id = id; js.async = true;
-            js.src = "//connect.facebook.net/en_US/all.js";
-            ref.parentNode.insertBefore(js, ref);
-        }(document));
-</script>
- -->
+            //This method will load the values to the labels
+            function LoadValues(me) {
+                if (me.name) {
+                    document.getElementById('displayname').innerHTML = me.name;
+                    document.getElementById('FBId').innerHTML = me.id;
+                    document.getElementById('DisplayEmail').innerHTML = me.email;
+                    document.getElementById('Gender').innerHTML = me.gender;
+                    document.getElementById('DOB').innerHTML = me.birthday;
+                    document.getElementById('auth-loggedin').style.display = 'block';
+                }
+            }
+        </script>
+        <script>
+          // Load the SDK Asynchronously
+          (function (d) {
+              var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+              if (d.getElementById(id)) { return; }
+              js = d.createElement('script'); js.id = id; js.async = true;
+              js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+              ref.parentNode.insertBefore(js, ref);
+          } (document));
+      </script>
 
 </head>
 <body>
@@ -77,6 +67,21 @@
         <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_Click" Text="Log in" />
         <br />
         <asp:Label ID="lblwerkt" runat="server" Text=""></asp:Label>
+
+     <div id="fb-root"></div> <!-- This initializes the FB controls-->   
+        <div class="fb-login-button" autologoutlink="true" scope="user_birthday,email" >
+        Login with Facebook
+     </div> <!-- FB Login Button -->   
+        <!-- Details --> 
+        <div id="auth-status">    
+        <div id="auth-loggedin" style="display: none">
+            Hi, <span id="displayname"></span><br/>
+            Your Facebook ID : <span id="FBId"></span><br/>
+            Your Email : <span id="DisplayEmail"></span><br/>
+            Your Sex:, <span id="Gender"></span><br/>
+            Your Date of Birth :, <span id="DOB"></span><br/>        
+    </div>
+    </div>
     
     </div>
         <p>
@@ -87,13 +92,6 @@
             <asp:Button ID="btnSignup" runat="server" OnClick="btnSignup_Click" Text="Sign up" />
         </p>
     </form>
-
-    <!--Facebook Login
-    <div id="fb-root"></div>
-    <div>
-        <div class="fb-login-button" data-show-faces="true" data-width="400" data-max-rows="1"></div>
-    </div>
-  -->
     
 </body>
 </html>

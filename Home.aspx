@@ -4,8 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link href="Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
+
     <link href="Content/CSS/home.css" rel="stylesheet" />
+    <link href="Content/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Content/bootstrap/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap/bootstrap.css" rel="stylesheet" />
     <title></title>
 </head>
 <body>
@@ -13,7 +18,7 @@
     <div>
     
     </div>
-        <asp:Label ID="lblUser" runat="server" Text="User"></asp:Label>
+        <asp:Label ID="lblUser" runat="server" Text="User" CssClass="h1"></asp:Label>
         <br />
         <asp:Label ID="lblTest" runat="server" Text="Label"></asp:Label>
         <br />
@@ -28,7 +33,7 @@
             <ItemTemplate>
                 <tr>
                     <td>
-                     <asp:LinkButton ID="btnInfoEvent" OnClick="btnInfoEvent_Click" CommandArgument='<%# Eval("id") %>' runat="server" >   <%# Eval("naam") %></asp:LinkButton>
+                     <asp:LinkButton ID="btnInfoEvent" OnClick="btnInfoEvent_Click" CommandArgument='<%# Eval("id") %>' runat="server" CssClass="h4">   <%# Eval("naam") %></asp:LinkButton>
                     </td>
                     <td>
                         <%# Eval("visitors") %>
@@ -48,10 +53,10 @@
         
        
         <p>
-            <asp:Button ID="btnMaakEvent" runat="server" OnClick="btnMaakEvent_Click" Text="Maak Event" />
+            <asp:Button ID="btnMaakEvent" runat="server" OnClick="btnMaakEvent_Click" Text="Maak Event" CssClass="btn" />
         </p>
          <p>
-            <asp:Button ID="btnAlleenAdmin" runat="server" Onclick="btnInfoEvent_Click" Text="Alleen Admin" />
+            <asp:Button ID="btnAlleenAdmin" runat="server" Onclick="btnInfoEvent_Click" Text="Alleen Admin" CssClass="btn"/>
         </p>
        
        

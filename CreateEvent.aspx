@@ -4,6 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link href="Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Content/bootstrap/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap/bootstrap.css" rel="stylesheet" />
     <title></title>
 </head>
 <body>
@@ -19,12 +23,12 @@
         <asp:RequiredFieldValidator ID="rfvInformatie" runat="server" ControlToValidate="txtInformatie" ErrorMessage="Gelieve dit in te vullen"></asp:RequiredFieldValidator>
         <br />
         <asp:Label ID="lblDatum" runat="server" AssociatedControlID="clDatum" Text="Datum"></asp:Label>
-        <asp:Calendar ID="clDatum" runat="server" SelectedDate="10/30/2013 18:03:17"></asp:Calendar>
+        <asp:Calendar ID="clDatum" runat="server" SelectedDate="10/30/2013 18:03:17" ></asp:Calendar>
     
     </div>
-        <asp:Button ID="btnMaak" runat="server" OnClick="btnMaak_Click" Text="Maak aan" />
+        <asp:Button ID="btnMaak" runat="server" OnClick="btnMaak_Click" Text="Maak aan" CssClass="btn" />
         <p>
-            <asp:Label ID="lblGebruiker" runat="server" Text="gebruiker"></asp:Label>
+            <asp:Label ID="lblGebruiker" runat="server" Text="gebruiker" ></asp:Label>
         </p>
     </form>
 </body>

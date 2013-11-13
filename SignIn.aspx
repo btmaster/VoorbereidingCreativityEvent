@@ -4,6 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link href="Content/bootstrap/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Content/bootstrap/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <title>Sign In</title>
     <!--
     <script>
@@ -68,23 +72,25 @@
     
         <asp:Label ID="lblGebruikersnaam" runat="server" AssociatedControlID="txtGebruikersnaam" Text="Gebruikersnaam"></asp:Label>
         <asp:TextBox ID="txtGebruikersnaam" runat="server"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="rfvGebruiker" runat="server" ControlToValidate="txtGebruikersnaam" ErrorMessage="Dit mag niet leeg blijven"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="rfvGebruiker" runat="server" ControlToValidate="txtGebruikersnaam" ErrorMessage="Dit mag niet leeg blijven" CssClass="alert-danger"></asp:RequiredFieldValidator>
         <br />
         <asp:Label ID="lblWachtwoord" runat="server" AssociatedControlID="txtWachtwoord" Text="Wachtwoord"></asp:Label>
         <asp:TextBox ID="txtWachtwoord" runat="server" TextMode="Password"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="rfvWachtwoord" runat="server" ControlToValidate="txtWachtwoord" ErrorMessage="Dit mag niet leeg blijven"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="rfvWachtwoord" runat="server" ControlToValidate="txtWachtwoord" ErrorMessage="Dit mag niet leeg blijven" CssClass="alert-danger"></asp:RequiredFieldValidator>
         <br />
-        <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_Click" Text="Log in" />
+        <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_Click" Text="Log in"  CssClass="btn btn-primary btn-large" />
         <br />
         <asp:Label ID="lblwerkt" runat="server" Text=""></asp:Label>
     
     </div>
+        <br />
+        <br />
         <p>
-            <asp:Button ID="btnNietlog" runat="server" OnClick="btnNietlog_Click" Text="Log niet in" />
+            <asp:Button ID="btnNietlog" runat="server" OnClick="btnNietlog_Click" Text="Log niet in" CssClass="btn" />
         </p>
         
         <p>
-            <asp:Button ID="btnSignup" runat="server" OnClick="btnSignup_Click" Text="Sign up" />
+            <asp:Button ID="btnSignup" runat="server" OnClick="btnSignup_Click" Text="Sign up" CssClass="btn" />
         </p>
     </form>
 

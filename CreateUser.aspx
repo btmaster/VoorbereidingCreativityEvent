@@ -4,12 +4,18 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link href="Content/bootstrap/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Content/bootstrap/bootstrap.css" rel="stylesheet" />
     <title>Create</title>
+    <link href="Content/bootstrap/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
 </head>
 
+
 <body>
-    <form id="form1" runat="server">
-    <div>
+
+    <form id="form1" runat="server" >
+    <div class="hero-unit">
     
         <asp:Label ID="lblNaam" runat="server" AssociatedControlID="txtNaam" Text="Naam"></asp:Label>
         <asp:TextBox ID="txtNaam" runat="server"></asp:TextBox>
@@ -41,7 +47,7 @@
         <asp:CompareValidator ID="cvWachtwoord" runat="server" ControlToCompare="txtWachtwoord" ControlToValidate="txtWachtwoord2" ErrorMessage="Wachtwoord komt niet overeen"></asp:CompareValidator>
         <br />
 
-        <asp:Button ID="btnSignup" runat="server" OnClick="btnSignup_Click" Text="Sign up" />
+        <asp:Button ID="btnSignup" runat="server" OnClick="btnSignup_Click" Text="Sign up" CssClass="btn btn-primary btn-large"/>
     
     </div>
         <asp:Label ID="lblinorde" runat="server"></asp:Label>

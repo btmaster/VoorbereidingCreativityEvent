@@ -15,7 +15,7 @@
             // Initialize the SDK upon load
             FB.init({
                 appId: '419477641511868', // App ID
-                channelUrl: 'http://localhost:62372/project/SignIn.aspx', // Path to your Channel File
+                channelUrl: 'http://localhost:50000/project/SignIn.aspx', // Path to your Channel File
                 scope: 'id,name,gender,user_birthday,email', // This to get the user details back from Facebook
                 status: true, // check login status
                 cookie: true, // enable cookies to allow the server to access the session

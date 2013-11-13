@@ -33,4 +33,14 @@ public class DALEvent
         return query;
 
     }
+/*
+    public void delete(int e_int)
+    {
+        var eventVerwijder = (from e in dc.Events
+                   where e.Id == e_int
+                   select e).Single();
+        dc.Events.DeleteOnSubmit(eventVerwijder);
+        dc.SubmitChanges();
+
+    }*/
 }

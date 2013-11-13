@@ -26,4 +26,19 @@ public class BLLEvent
     {
         return DalAddEvents.SelectAll();
     }
+    /*
+    public void delete()
+    {
+        List<Event> Events = DalAddEvents.SelectAll();
+        foreach (Event row in Events)
+        {
+            if (row.datum < DateTime.Now)
+            {
+                DalAddEvents.delete(row.Id);
+            }
+        }
+*/
+       
+        
+    }
 }

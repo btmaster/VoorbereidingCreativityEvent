@@ -63,7 +63,7 @@ public partial class Home : System.Web.UI.Page
         LinkButton btnAanwezig = (LinkButton)(sender);
         BLLUser inladen = new BLLUser();
         Boolean Aanwezig = false;
-
+        
         if (gebruiker == "")
         {
             btnAanwezig.Attributes["style"] = "visibility: hidden";
@@ -71,24 +71,25 @@ public partial class Home : System.Web.UI.Page
         else
         {
 
-
+        
             int id = Convert.ToInt16(btnAanwezig.CommandArgument);
 
             BLLEvent BLLEvent = new BLLEvent();
             BLLAanwezig SelectAanwezig = new BLLAanwezig();
-            BLLEvent.aanwezig(id);
+            
 
             IList<User> test = inladen.selectgebruiker(gebruiker);
             User tester = test[0];
 
             IList<int> Events = SelectAanwezig.SelectAllAanwezige(id);
-
+            
             foreach (int row in Events)
             {
                 List<string> TussenAanwezig = inladen.selectAanwezigen(row);
                 var persoon = TussenAanwezig[0];
+                if (persoon == tester.naam){
                 Aanwezig = true;
-
+                }
             }
             if (Aanwezig == false)
             {
@@ -98,6 +99,7 @@ public partial class Home : System.Web.UI.Page
                 aanwezigmaak.PersoonId = tester.Id;
                 BLLAanwezig aanwezigmaken = new BLLAanwezig();
                 aanwezigmaken.insert(aanwezigmaak);
+                BLLEvent.aanwezig(id);
 
 
 

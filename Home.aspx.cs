@@ -25,6 +25,11 @@ public partial class Home : System.Web.UI.Page
        
         Console.Write(result);
         */
+
+        /*
+        BLLEvent BLLEvents = new BLLEvent();
+        BLLEvents.delete();
+        */
         gebruiker = (string)(Session["gebruikersnaam"]);
         if (gebruiker == "")
         {
@@ -84,7 +89,7 @@ public partial class Home : System.Web.UI.Page
             IList<int> Events = SelectAanwezig.SelectAllAanwezige(id);
             
             foreach (int row in Events)
-            {
+                {
                 List<string> TussenAanwezig = inladen.selectAanwezigen(row);
                 var persoon = TussenAanwezig[0];
                 if (persoon == tester.naam){

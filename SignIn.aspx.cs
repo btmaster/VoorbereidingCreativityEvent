@@ -73,6 +73,7 @@ public partial class SignIn : System.Web.UI.Page
         //Facebook
         FaceBookConnect.API_Key = "249728251846520";
         FaceBookConnect.API_Secret = "1d01c361395c681d29ec84ba2a4aedc2";
+
         if (!IsPostBack)
         {
             if (Request.QueryString["error"] == "access_denied")

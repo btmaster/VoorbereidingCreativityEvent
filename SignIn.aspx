@@ -29,8 +29,204 @@
         <br />
         <asp:Label ID="lblwerkt" runat="server" Text=""></asp:Label>
 
-     <asp:Button ID="Button1" runat="server" Text="Login with FaceBook" OnClick="Login" />
+     <asp:Button ID="btnFacebook" runat="server" Text="Login with FaceBook" OnClick="LoginFacebook" />
     
+
+
+        <asp:Button ID="btnTwitter" runat="server" Text="Login with Twitter" OnClick="LoginTwitter" />
+<hr />
+
+
+
+
+
+<table runat="server" id="tblTwitter" visible="false">
+    <tr>
+        <td colspan="2">
+            <u>Logged in Twitter User's Profile</u>
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 100px">
+            Profile Image
+        </td>
+        <td>
+            <asp:Image ID="imgProfile" runat="server" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Name
+        </td>
+        <td>
+            <asp:Label ID="lblName" runat="server" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Twitter Id
+        </td>
+        <td>
+            <asp:Label ID="lblTwitterId" runat="server" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Screen Name
+        </td>
+        <td>
+            <asp:Label ID="lblScreenName" runat="server" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Description
+        </td>
+        <td>
+            <asp:Label ID="lblDescription" runat="server" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Tweets
+        </td>
+        <td>
+            <asp:Label ID="lblTweets" runat="server" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Followers
+        </td>
+        <td>
+            <asp:Label ID="lblFollowers" runat="server" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Friends
+        </td>
+        <td>
+            <asp:Label ID="lblFriends" runat="server" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Favorites
+        </td>
+        <td>
+            <asp:Label ID="lblFavorites" runat="server" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Location
+        </td>
+        <td>
+            <asp:Label ID="lblLocation" runat="server" />
+        </td>
+    </tr>
+</table>
+<br />
+<table runat="server" id="tblOtherTwitter" visible="false">
+    <tr>
+        <td colspan="2">
+            <u>Other Twitter User's Profile</u>
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 100px">
+            Profile Image
+        </td>
+        <td>
+            <asp:Image ID="imgOtherProfile" runat="server" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Name
+        </td>
+        <td>
+            <asp:Label ID="lblOtherName" runat="server" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Twitter Id
+        </td>
+        <td>
+            <asp:Label ID="lblOtherTwitterId" runat="server" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Screen Name
+        </td>
+        <td>
+            <asp:Label ID="lblOtherScreenName" runat="server" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Description
+        </td>
+        <td>
+            <asp:Label ID="lblOtherDescription" runat="server" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Tweets
+        </td>
+        <td>
+            <asp:Label ID="lblOtherTweets" runat="server" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Followers
+        </td>
+        <td>
+            <asp:Label ID="lblOtherFollowers" runat="server" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Friends
+        </td>
+        <td>
+            <asp:Label ID="lblOtherFriends" runat="server" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Favorites
+        </td>
+        <td>
+            <asp:Label ID="lblOtherFavorites" runat="server" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Location
+        </td>
+        <td>
+            <asp:Label ID="lblOtherLocation" runat="server" />
+        </td>
+    </tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
         <br />
         <br />

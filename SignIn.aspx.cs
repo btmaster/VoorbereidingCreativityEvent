@@ -80,8 +80,40 @@ public partial class SignIn : System.Web.UI.Page
                 lblUserName.Text = faceBookUser.UserName;
                 lblName.Text = faceBookUser.Name;
                 lblEmail.Text = faceBookUser.Email;
-                ProfileImage.ImageUrl = faceBookUser.PictureUrl;
                 btnLogin.Enabled = false;
+
+                User newUser = new User();
+                BLLUser BLLAddUsers = new BLLUser();
+
+                var voornaam = faceBookUser.First_Name;
+                var naam = faceBookUser.Last_Name;
+                var email = faceBookUser.Email;
+                var wachtwoord = "";
+                var gebruikersnaam = faceBookUser.UserName;
+                Boolean toegestaan = false;
+
+
+                newUser.wachtwoord = wachtwoord;
+                newUser.gebruikersnaam = gebruikersnaam;
+                toegestaan = BLLAddUsers.Checker(newUser);
+                if (toegestaan == true)
+                {
+                    lblwerkt.Text = "gebruiker bestaat al";
+                    Session.Add("gebruikersnaam", newUser.gebruikersnaam);
+                    Response.Redirect("~/Home.aspx");
+                    
+                }
+                else
+                {
+                    newUser.email = email;
+                    newUser.voornaam = voornaam;
+                    newUser.naam = naam;
+                    newUser.rol = "visitor";
+                    BLLAddUsers.insert(newUser);
+                    Session.Add("gebruikersnaam", newUser.gebruikersnaam);
+                    Response.Redirect("~/Home.aspx");
+       
+                }
             }
         }
     }
@@ -90,7 +122,8 @@ public partial class SignIn : System.Web.UI.Page
         public string Id { get; set; }
         public string Name { get; set; }
         public string UserName { get; set; }
-        public string PictureUrl { get; set; }
+        public string First_Name { get; set; }
+        public string Last_Name { get; set; }
         public string Email { get; set; }
     }
 }

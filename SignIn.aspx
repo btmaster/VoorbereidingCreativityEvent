@@ -30,24 +30,6 @@
         <asp:Label ID="lblwerkt" runat="server" Text=""></asp:Label>
 
      <asp:Button ID="Button1" runat="server" Text="Login with FaceBook" OnClick="Login" />
-<asp:Panel ID="pnlFaceBookUser" runat="server" Visible="false">
-<hr />
-<table>
-    
-    <tr>
-        <td>ID:<asp:Label ID="lblId" runat="server" Text=""></asp:Label></td>
-    </tr>
-    <tr>
-        <td>UserName:<asp:Label ID="lblUserName" runat="server" Text=""></asp:Label></td>
-    </tr>
-    <tr>
-        <td>Name:<asp:Label ID="lblName" runat="server" Text=""></asp:Label></td>
-    </tr>
-    <tr>
-        <td>Email:<asp:Label ID="lblEmail" runat="server" Text=""></asp:Label></td>
-    </tr>
-</table>
-</asp:Panel>
     
     </div>
         <br />

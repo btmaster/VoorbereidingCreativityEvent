@@ -10,11 +10,7 @@
     <link href="Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <title>Sign In</title>
         <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
-        
-
-        
-
-       
+  
 </head>
 <body>
  

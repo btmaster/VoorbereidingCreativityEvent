@@ -75,11 +75,7 @@ public partial class SignIn : System.Web.UI.Page
                 string data = FaceBookConnect.Fetch(code, "me");
                 FaceBookUser faceBookUser = new JavaScriptSerializer().Deserialize<FaceBookUser>(data);
                
-                pnlFaceBookUser.Visible = true;
-                lblId.Text = faceBookUser.Id;
-                lblUserName.Text = faceBookUser.UserName;
-                lblName.Text = faceBookUser.Name;
-                lblEmail.Text = faceBookUser.Email;
+                
                 btnLogin.Enabled = false;
 
                 User newUser = new User();

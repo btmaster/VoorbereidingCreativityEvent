@@ -1,20 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CreateUser.aspx.cs" Inherits="CreateUser" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="CreateUser.aspx.cs" Inherits="CreateUser" %>
 
-<!DOCTYPE html>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>Created Events</title>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderId="ContentHeadCenter" runat="server">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <link href="Content/bootstrap/bootstrap-theme.css" rel="stylesheet" />
-    <link href="Content/bootstrap/bootstrap.css" rel="stylesheet" />
-    <title>Create</title>
-    <link href="Content/bootstrap/bootstrap-theme.min.css" rel="stylesheet" />
-    <link href="Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
-</head>
-
-
-<body>
-
-    <form id="form1" runat="server" >
+     <div class="page-header">
+        <asp:Label ID="lblUser" runat="server" CssClass="h1"> Registreer u hier!</asp:Label>
+    </div>
     <div class="hero-unit">
     
         <asp:Label ID="lblNaam" runat="server" AssociatedControlID="txtNaam" Text="Naam"></asp:Label>
@@ -51,8 +44,4 @@
     
     </div>
         <asp:Label ID="lblinorde" runat="server"></asp:Label>
-        <br />
-        <br />
-    </form>
-</body>
-</html>
+</asp:Content>

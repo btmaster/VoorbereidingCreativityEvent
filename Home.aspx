@@ -5,9 +5,9 @@
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderId="ContentHeadCenter" runat="server">
     <div class="page-header">
-        <asp:Label ID="lblUser" runat="server" Text="User" CssClass="h1"></asp:Label>
+        <asp:Label ID="lblUser" runat="server" Text="User"></asp:Label>
         <br />
-        <asp:Label ID="lblTest" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="lblTest" runat="server" Text="Label"  CssClass="h1"></asp:Label>
         <br />
      </div> 
         <br />

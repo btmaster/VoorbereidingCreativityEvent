@@ -1,22 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="SignIn.aspx.cs" Inherits="SignIn" %>
+﻿<%@ Page MasterPageFile="~/MasterPage.master" Language="C#" AutoEventWireup="true" CodeFile="SignIn.aspx.cs" Inherits="SignIn" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <link href="Content/bootstrap/bootstrap-theme.css" rel="stylesheet" />
-    <link href="Content/bootstrap/bootstrap-theme.min.css" rel="stylesheet" />
-    <link href="Content/bootstrap/bootstrap.css" rel="stylesheet" />
-    <link href="Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
+<asp:Content ContentPlaceHolderID="head" runat="server">
     <title>Sign In</title>
-        <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
-  
-</head>
-<body>
- 
-    <form id="form1" runat="server">
-    <div>
-    
+</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderId="ContentHeadCenter" runat="server">
+    <div class="jumbotron">
+      <div class="container">
         <asp:Label ID="lblGebruikersnaam" runat="server" AssociatedControlID="txtGebruikersnaam" Text="Gebruikersnaam"></asp:Label>
         <asp:TextBox ID="txtGebruikersnaam" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="rfvGebruiker" ValidationGroup="normalLogin" runat ="server" ControlToValidate="txtGebruikersnaam" ErrorMessage="Dit mag niet leeg blijven" CssClass="alert-danger"></asp:RequiredFieldValidator>
@@ -26,14 +15,14 @@
         <asp:RequiredFieldValidator ID="rfvWachtwoord" ValidationGroup="normalLogin" runat="server" ControlToValidate="txtWachtwoord" ErrorMessage="Dit mag niet leeg blijven" CssClass="alert-danger"></asp:RequiredFieldValidator>
         <br />
         <asp:Button ID="btnLogin" runat="server" ValidationGroup="normalLogin" OnClick="btnLogin_Click" Text="Log in"  CssClass="btn btn-primary btn-large" />
-        <br />
+        
         <asp:Label ID="lblwerkt" runat="server" Text=""></asp:Label>
 
-     <asp:Button ID="btnFacebook" runat="server" Text="Login with FaceBook" OnClick="LoginFacebook" />
-    
-
-
-        <asp:Button ID="btnTwitter" runat="server" Text="Login with Twitter" OnClick="LoginTwitter" />
+       <asp:Button ID="btnFacebook" runat="server" Text="Login with FaceBook" OnClick="LoginFacebook" CssClass="btn btn-default" />
+       <asp:Button ID="btnTwitter" runat="server" Text="Login with Twitter" OnClick="LoginTwitter" CssClass="btn btn-default"/>
+       <asp:Button ID="btnNietlog" runat="server" OnClick="btnNietlog_Click" Text="Log niet in" CssClass="btn btn-default" />
+       <asp:Button ID="btnSignup" runat="server" OnClick="btnSignup_Click" Text="Sign up" CssClass="btn btn-default" />
+        
 <hr />
 
 
@@ -127,31 +116,9 @@
         </td>
     </tr>
 </table>
-<br />
 
-
-
-
-
-
-
-
-
-
-
-
-
+       
     </div>
-        <br />
-        <br />
-        <p>
-            <asp:Button ID="btnNietlog" runat="server" OnClick="btnNietlog_Click" Text="Log niet in" CssClass="btn" />
-        </p>
-        
-        <p>
-            <asp:Button ID="btnSignup" runat="server" OnClick="btnSignup_Click" Text="Sign up" CssClass="btn" />
-        </p>
-    </form>
+    </div>
     
-</body>
-</html>
+</asp:Content>
